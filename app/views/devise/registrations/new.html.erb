@@ -1,0 +1,43 @@
+<div class='flex flex-col gap-3 lg:items-center lg:self-center lg:w-fit lg:mx-auto'>
+  <h1 class='text-center font-underline text-3xl '>Sign up</h1>
+  <div class='bg-slate-100 px-12 py-6 shadow border rounded-md'>
+    <%= form_for(resource, as: resource_name, data: {turbo: false}, url: registration_path(resource_name)) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+    <div class='flex flex-col gap-10 lg:gap-3'>
+      <div class="field">
+        <%= f.label :email, class: 'text-xl' %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'text-xl' %>
+      </div>
+
+      <div class="field">
+        <%= f.label :user_name, class: 'text-xl' %><br />
+        <%= f.text_field :user_name,   class: 'text-xl' %>
+      </div>
+
+      <div class="field">
+        <%= f.label :password, class: 'text-xl' %>
+        <% if @minimum_password_length %>
+        <em class='text-base font-italic'>(<%= @minimum_password_length %> characters minimum)</em>
+        <% end %><br />
+        <%= f.password_field :password, autocomplete: "new-password", class: 'text-xl' %>
+      </div>
+      <div class="field">
+        <%= f.label :password_confirmation, class: 'text-xl' %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'text-xl' %>
+      </div>
+      <div class="field flex flex-col">
+        <%= f.label :role, class: 'text-xl' %>
+        <%= f.collection_select :role_id, UserRole.all, :id, :role ,class: 'border-2 border-slate-500 rounded-md px-2 py-1 text-2xl'%>
+
+      </div>
+
+      <div class="actions justify-self-center">
+        <%= f.submit "Sign up", class: 'border rounded py-3 text-2xl text-center bg-slate-400 mb-12 w-full cursor-pointer' %>
+      </div>
+    </div>
+    <% end %>
+    <div class='w-full'>
+      <%= render "devise/shared/links" %>
+    </div>
+  </div>
+</div>

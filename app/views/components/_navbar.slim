@@ -1,0 +1,25 @@
+= javascript_include_tag 'nav'
+nav.fixed.w-12.h-screen.bg-slate-400.px-4.py-6.flex.flex-col.gap-10.top-0.left-0.z-50.items-center.shadow-xl#nav
+    span.flex.flex-col.gap-3.items-center.cursor-pointer onclick='expandNav()'
+    	= fa_icon 'chevron-right lg', id: 'nav-icon'
+    	p.text-xs#nav-text Open
+	a.flex.flex-col.gap-3.items-center href = root_path
+		= fa_icon 'list lg', class: 'cursor-pointer'
+		p.text-xs.nav-item All Tickets
+	a.flex.flex-col.gap-3.items-center href = new_ticket_path
+		= fa_icon 'plus lg', class: 'cursor-pointer'
+		p.text-xs.nav-item New Ticket
+	- if user_signed_in?
+		a.flex.flex-col.gap-3.items-center href= edit_user_registration_path
+			= fa_icon 'user lg', class: 'cursor-pointer'
+			p.text-xs.nav-item = current_user.user_name
+	- else
+		a.flex.flex-col.gap-3.items-center href = new_user_session_path
+			= fa_icon 'user lg', class: 'cursor-pointer'
+			p.text-xs.nav-item Sign In
+
+
+	- if user_signed_in?
+		= button_to destroy_user_session_path, data: {turbo: false}, method: :delete, class: 'flex flex-col gap-3 items-center' do
+			= fa_icon 'arrow-right-from-bracket lg'
+			p.text-xs.hidden#sign-out-text Sign Out

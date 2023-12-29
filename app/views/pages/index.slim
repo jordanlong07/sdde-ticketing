@@ -1,0 +1,19 @@
+.flex.flex-col.w-full
+    - if @tickets.any?
+        h1.text-4xl.text-center.bg-slate-300.px-6.py-2.drop-shadow.mx-auto.top-0.mb-12 class='lg:hidden' All Tickets
+        .flex.flex-col.gap-3 class='lg:flex lg:flex-row lg:flex-wrap lg:gap-0 lg:px-8 lg:justify-items-start lg:items-center'
+
+            - @tickets.each do |ticket|
+                .flex.flex-col.gap-3.px-6.py-6.drop-shadow class='w-full lg:w-2/6 bg-slate-300 lg:border rounded-md'
+                    .flex.flex-col.gap-3
+                        h1 class='text-xl text-center border-b lg:text-2xl' = ticket.title
+                    .flex.flex-col.gap-3
+                        p.text-xl = ticket.ticket_description
+                    .flex.flex-col.gap-3
+                        p.text-xl  = "Status: #{ticket.status}"
+                    .flex.flex-col.gap-3
+                            - assigned_to = User.find(ticket.assigned_to)
+                            p.text-base = "Assigned To: #{assigned_to.user_name}"
+
+- if !@tickets.any?
+    h1.text-4xl.text-center.bg-red-400.px-6.py-2.drop-shadow.mx-auto No Tickets

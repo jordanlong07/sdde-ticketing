@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   # root "posts#index"
   root "pages#index"
   resources :tickets
+  resources :comment
 end

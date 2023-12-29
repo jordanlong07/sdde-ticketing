@@ -26,4 +26,16 @@
     display: inline;
 }
 
+.comment-section {
+    height: calc(100vh - 15rem);
+    width: 30rem;
+}
+textarea {
+    border: none;
+    overflow: auto;
+    outline: none;
 
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}

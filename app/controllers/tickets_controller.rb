@@ -13,7 +13,11 @@ class TicketsController < ApplicationController
       end
     
     def show
+      if Ticket.exists?(params[:id])
         @ticket = Ticket.find(params[:id])
+      else
+        redirect_to root_path
+      end
     end
 
     

@@ -1,0 +1,7 @@
+= form_with model: Comment.new, url: comment_index_path, method: :post, remote: true, data: { turbo: false } do |form|
+  .w-full.h-fit.inline-flex.gap-0.items-center.bg-white.px-3
+    = form.text_area :body, class: 'w-full border-none focus:outline-none resize-none outline-none', placeholder: 'Write a comment...'
+    = form.hidden_field :ticket_id, value: ticket.id
+    span.inline-flex.gap-2.items-center.cursor-pointer
+      = form.submit 'Send', class: 'btn'
+      i.fa-solid.fa-paper-plane

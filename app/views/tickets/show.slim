@@ -1,4 +1,5 @@
-.border.rounded-md
-    = @ticket.title
-    = @ticket.description
-    
+.border.rounded-md.flex.flex-row.w-full.justify-between
+    .
+        = @ticket.title
+        = @ticket.ticket_description
+    = render 'comment/comment_section', ticket: @ticket

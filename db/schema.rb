@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_12_27_214846) do
+ActiveRecord::Schema[7.1].define(version: 2023_12_29_174354) do
   create_table "assigned_tos", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "author"
+    t.text "body"
+    t.integer "ticket_id"
   end
 
   create_table "tickets", force: :cascade do |t|
@@ -56,5 +64,6 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_27_214846) do
     t.index ["role_id"], name: "index_users_on_role_id"
   end
 
+  add_foreign_key "comments", "tickets"
   add_foreign_key "users", "user_roles", column: "role_id"
 end

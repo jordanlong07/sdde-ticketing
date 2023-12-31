@@ -12,7 +12,7 @@ nav.fixed.w-12.h-screen.bg-slate-400.px-4.py-6.flex.flex-col.gap-10.top-0.left-0
 	- if user_signed_in?
 		a.flex.flex-col.gap-3.items-center href= my_tickets_path
 			= fa_icon 'user lg', class: 'cursor-pointer'
-			p.text-xs.nav-item Your Tickets
+			p.text-xs.nav-item.no-wrap Your Tickets
 	- else
 		a.flex.flex-col.gap-3.items-center href = new_user_session_path
 			= fa_icon 'user lg', class: 'cursor-pointer'

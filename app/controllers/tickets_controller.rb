@@ -46,6 +46,11 @@ class TicketsController < ApplicationController
     end
 
     def my_tickets
+      @priority_colour_map = {
+        "Low" => "green",
+        "Medium" => "#f97316",
+        "High" => "red"
+      }
       @tickets = Ticket.where(assigned_to: current_user.id)
     end
     

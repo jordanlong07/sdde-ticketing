@@ -2,16 +2,23 @@ default: &default
   adapter: postgresql
   encoding: unicode
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  timeout: 5000
 
 development:
   <<: *default
-  database: d8c3p6g82624jk
+  database: sdde_ticketing_db
+  username: sdbggbicedcqxd
+  password: 6e2583434e6ee032335a30e402caf22eb901adaba91414d9b984c8133ed6fd6e
 
 test:
   <<: *default
-  database: d8c3p6g82624jk
+  database: sdde_ticketing_db
+  username: sdbggbicedcqxd
+  password: 6e2583434e6ee032335a30e402caf22eb901adaba91414d9b984c8133ed6fd6e
 
 production:
   <<: *default
+  database: sdde_ticketing_db
+  username: sdbggbicedcqxd
+  password: 6e2583434e6ee032335a30e402caf22eb901adaba91414d9b984c8133ed6fd6e
   url: <%= ENV['DATABASE_URL'] %>
+

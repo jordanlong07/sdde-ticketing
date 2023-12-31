@@ -13,13 +13,37 @@ class TicketsController < ApplicationController
       end
     
     def show
+      @priority_colour_map = {
+        "Low" => "green",
+        "Medium" => "#f97316",
+        "High" => "red"
+      }
+      @due_date_expired = true
       if Ticket.exists?(params[:id])
         @ticket = Ticket.find(params[:id])
+        @due_date_expired = @ticket.due_date < Date.today unless @ticket.due_date.nil?
       else
         redirect_to root_path
       end
     end
 
+    def edit
+      if Ticket.exists?(params[:id])
+        @ticket = Ticket.find(params[:id])
+        if @ticket.assigned_to != current_user.id.to_s || @ticket.assigned_by != current_user.user_name
+          redirect_to root_path
+        end
+
+      else
+        redirect_to root_path
+      end
+    end
+
+    def update
+      @ticket = Ticket.find(params[:id])
+      render :edit unless @ticket.update(new_ticket_params)
+      redirect_to ticket_path(@ticket)
+    end
     
       private
       def new_ticket_params

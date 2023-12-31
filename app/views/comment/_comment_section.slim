@@ -1,9 +1,9 @@
-.place-self-end.border-2.rounded.px-4.py-6.bg-slate-100.h-full
+.place-self-end.border-2.rounded.px-4.py-6.bg-slate-100.h-full.flex.flex-col
     - @comments = Comment.where(ticket_id: ticket.id)
     - if @comments.present?
         .comment-section
             h3 Comments (#{@comments.length})
-            .flex.flex-col.gap-2.mt-3
+            .flex.flex-col.gap-2.mt-3.overflow-y-auto.comments
                 - @comments.each do |comment|
                     - if comment.author == current_user.id
                         = render 'comment/your_comment', comment: comment

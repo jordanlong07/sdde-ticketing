@@ -39,3 +39,8 @@ textarea {
     -moz-box-shadow: none;
     box-shadow: none;
 }
+.comments {
+    height: calc(100vh - 18rem);
+    max-height: calc(100vh - 18rem);
+    overflow-y: scroll;
+}

@@ -8,6 +8,9 @@
                     .flex.flex-col.gap-3
                         h1 class='text-xl text-center border-b lg:text-2xl' = ticket.title
                     .flex.flex-col.gap-3
+                    - if ticket.ticket_description.length > 100
+                        p.text-xl = ticket.ticket_description[0..100] + '...'
+                    - else
                         p.text-xl = ticket.ticket_description
                     .flex.gap-1.items-end
                         p.text-xl  Priority: 

@@ -7,5 +7,6 @@ class PagesController < ApplicationController
             "High" => "red"
         }
         @tickets = Ticket.all
+        
     end
 end

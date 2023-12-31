@@ -55,6 +55,7 @@ class TicketsController < ApplicationController
     end
 
     def destroy
+      puts "destroy"
       @ticket = Ticket.find(params[:id])
       @ticket.destroy
       redirect_to root_path

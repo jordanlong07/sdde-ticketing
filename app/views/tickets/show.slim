@@ -2,9 +2,13 @@
     .flex.flex-col.gap-8.bg-slate-50.w-full.px-6.py-4.border-t.border-b.border-l.rounded-md
         p.text-3xl = @ticket.title
         p.bg-slate-100.p-2.rounded = @ticket.ticket_description
-        .inline-flex.gap-1.bg-slate-100.p-2.rounded
-            p Ticket Created:
-            p = @ticket.created_at.strftime('%B %d, %Y')
+        .flex.gap-2.w-full
+            .flex.flex-col.gap-1.bg-slate-100.p-2.rounded class='w-1/2'   
+                p Ticket Created:
+                p = @ticket.created_at.strftime('%B %d, %Y')
+            .flex.flex-col.gap-2.bg-slate-100.p-2.rounded class = 'w-1/2'
+                p Ticket Priority
+                p style='color: #{@priority_colour_map[@ticket.priority]};' = @ticket.priority
         .flex.gap-3.w-full
             .flex.flex-col.gap-1.p-2.rounded class = "#{@due_date_expired  ? 'bg-red-100' : 'bg-slate-100'} w-1/2"
                 p Ticket Due:
@@ -12,16 +16,13 @@
             .bg-slate-100.p-2 class='w-1/2'
                 p Ticket Status
                 p = @ticket.status
-        .flex.flex-col.gap-2.bg-slate-100.p-2.rounded
-            p Ticket Priority
-            p style='color: #{@priority_colour_map[@ticket.priority]};' = @ticket.priority
         .inline-flex.gap-2
             p.p-2.rounded.bg-slate-100 class='w-1/2' Ticket Owner: #{@ticket.assigned_by}
             p.p-2.rounded.bg-slate-100 class='w-1/2' Assigned To: #{User.find(@ticket.assigned_to).user_name}
 
         - if @ticket.assigned_by == current_user.user_name
             .flex.flex-row.gap-4.self-center
-                = link_to 'Edit', edit_ticket_path(@ticket), class: 'border rounded-md p-2 bg-slate-100 hover:bg-slate-200'
-                = link_to 'Delete', ticket_path(@ticket), method: :delete, data: { confirm: 'Are you sure?' }, class: 'border rounded-md p-2 bg-slate-100 hover:bg-red-500'
+                = button_to 'Edit', edit_ticket_path(@ticket), class: 'border rounded-md p-2 bg-slate-100 hover:bg-slate-200'
+                = button_to 'Delete', ticket_path(@ticket), method: :delete, class: 'border rounded-md p-2 bg-slate-100 hover:bg-red-500'
 
     = render 'comment/comment_section', ticket: @ticket

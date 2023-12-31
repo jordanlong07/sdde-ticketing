@@ -80,5 +80,5 @@ test:
 production:
   <<: *default
   database: sdde-ticketing_production
-  username: sdde-ticketing
+  username: sdbggbicedcqxd
   password: <%= ENV["SDDE-TICKETING_DATABASE_PASSWORD"] %>

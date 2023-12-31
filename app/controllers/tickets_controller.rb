@@ -53,6 +53,12 @@ class TicketsController < ApplicationController
       }
       @tickets = Ticket.where(assigned_to: current_user.id)
     end
+
+    def destroy
+      @ticket = Ticket.find(params[:id])
+      @ticket.destroy
+      redirect_to root_path
+    end
     
       private
       def new_ticket_params

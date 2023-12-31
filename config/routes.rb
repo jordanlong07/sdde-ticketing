@@ -11,4 +11,6 @@ Rails.application.routes.draw do
   root "pages#index"
   resources :tickets
   resources :comment
+  # user tickets path
+  get "my_tickets" => "tickets#my_tickets", as: :my_tickets
 end

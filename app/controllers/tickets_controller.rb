@@ -30,7 +30,7 @@ class TicketsController < ApplicationController
     def edit
       if Ticket.exists?(params[:id])
         @ticket = Ticket.find(params[:id])
-        if @ticket.assigned_to != current_user.id.to_s || @ticket.assigned_by != current_user.user_name
+        if @ticket.assigned_to.to_s != current_user.id.to_s || @ticket.assigned_by != current_user.user_name
           redirect_to root_path
         end
 
@@ -43,6 +43,10 @@ class TicketsController < ApplicationController
       @ticket = Ticket.find(params[:id])
       render :edit unless @ticket.update(new_ticket_params)
       redirect_to ticket_path(@ticket)
+    end
+
+    def my_tickets
+      @tickets = Ticket.where(assigned_to: current_user.id)
     end
     
       private

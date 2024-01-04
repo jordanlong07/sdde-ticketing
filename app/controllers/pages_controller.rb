@@ -6,7 +6,7 @@ class PagesController < ApplicationController
             "Medium" => "#f97316",
             "High" => "red"
         }
-        @tickets = Ticket.all
+        @tickets = Ticket.active
         
     end
 end

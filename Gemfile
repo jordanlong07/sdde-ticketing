@@ -3,7 +3,7 @@ source "https://rubygems.org"
 ruby "3.2.2"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
-gem "rails", "~> 7.1.1"
+gem "rails", "~> 7.1.5", ">= 7.1.5.2"
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
@@ -71,7 +71,7 @@ group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem 'capybara'
   gem 'capybara-screenshot'
-  gem 'database_cleaner'
+  gem 'database_cleaner', '>= 2.1.0'
   gem 'factory_bot_rails'
   gem 'rails-controller-testing'
   gem 'rubocop'

@@ -74,10 +74,10 @@ group :test do
   gem 'database_cleaner'
   gem 'factory_bot_rails'
   gem 'rails-controller-testing'
-  gem 'rubocop'
-  gem 'rubocop-performance'
-  gem 'rubocop-rails'
-  gem 'rubocop-rspec', require: false
+  gem 'rubocop', '>= 1.66.0'
+  gem 'rubocop-performance', '>= 1.20.2'
+  gem 'rubocop-rails', '>= 2.24.0'
+  gem 'rubocop-rspec', '>= 2.26.0', require: false
   gem 'selenium-webdriver'
   gem 'webdrivers'
 end

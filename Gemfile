@@ -3,10 +3,10 @@ source "https://rubygems.org"
 ruby "3.2.2"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
-gem "rails", "~> 7.1.1"
+gem "rails", "~> 7.1.3"
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
-gem "sprockets-rails"
+gem "sprockets-rails", ">= 3.5.0"
 
 # Use sqlite3 as the database for Active Record
 gem 'pg'
@@ -14,16 +14,16 @@ gem 'pg'
 gem "puma", ">= 5.0"
 
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
-gem "importmap-rails"
+gem "importmap-rails", ">= 2.0.0"
 
 # Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
-gem "turbo-rails"
+gem "turbo-rails", ">= 2.0.0"
 
 # Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
-gem "stimulus-rails"
+gem "stimulus-rails", ">= 1.3.1"
 
 # Use Tailwind CSS [https://github.com/rails/tailwindcss-rails]
-gem "tailwindcss-rails"
+gem "tailwindcss-rails", ">= 2.1.0"
 
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
@@ -48,10 +48,10 @@ gem "bootsnap", require: false
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
-  gem 'cucumber-rails', require: false
+  gem 'cucumber-rails', '>= 3.0.1', require: false
   gem 'debug', platforms: %i[mri mingw x64_mingw]
-  gem 'rspec-rails'
-  gem 'factory_bot_rails'
+  gem 'rspec-rails', '>= 6.1.1'
+  gem 'factory_bot_rails', '>= 6.4.3', '>= 6.4.3'
   gem 'faker'
 
 end
@@ -69,20 +69,20 @@ end
 
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
-  gem 'capybara'
+  gem 'capybara', '>= 3.40.0'
   gem 'capybara-screenshot'
   gem 'database_cleaner'
   gem 'factory_bot_rails'
   gem 'rails-controller-testing'
   gem 'rubocop'
   gem 'rubocop-performance'
-  gem 'rubocop-rails'
+  gem 'rubocop-rails', '>= 2.24.0'
   gem 'rubocop-rspec', require: false
   gem 'selenium-webdriver'
   gem 'webdrivers'
 end
 
 gem 'slim'
-gem "devise", "~> 4.9"
-gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.8'
+gem "devise", "~> 4.9", ">= 4.9.4"
+gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.9'
 gem 'faker'
